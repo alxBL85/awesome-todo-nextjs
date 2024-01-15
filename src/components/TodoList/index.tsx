@@ -1,11 +1,9 @@
-import { getTodos } from '@/services';
-import Todo from '../Todo';
+import { TodoType } from '@/types';
 import { List, ListItem } from '@mui/material';
 import { Suspense } from 'react';
+import Todo from '../Todo';
 
-export async function TodoList() {
-  const todos = await getTodos();
-
+export async function TodoList({ todos }: { todos: TodoType[] }) {
   return (
     <Suspense fallback={'loading...'}>
       <List>
